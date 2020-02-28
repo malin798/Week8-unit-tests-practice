@@ -1,9 +1,10 @@
+import { transform } from "@babel/core"
+
 export const isEmpty = (stringArrayOrObject) => {
   const type = typeof stringArrayOrObject
 
-  if (type === 'string') {
-    return stringArrayOrObject === ''
-  }
+  return (type === 'string' && stringArrayOrObject === '' ||
+  stringArrayOrObject.length === 0 ||
+  Object.entries(stringArrayOrObject).length === 0);
 
-  return false
 }
